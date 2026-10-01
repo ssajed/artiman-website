@@ -1,7 +1,7 @@
 <?php
 
-use App\Providers\AppServiceProvider;
-
 return [
-    AppServiceProvider::class,
+    App\Providers\AppServiceProvider::class,
+    App\Modules\Core\Providers\CoreServiceProvider::class,
+    App\Modules\Identity\Providers\IdentityServiceProvider::class,
 ];
