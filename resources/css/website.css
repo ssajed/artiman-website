@@ -1,0 +1,22 @@
+/*
+|--------------------------------------------------------------------------
+| Website Module Styles
+|--------------------------------------------------------------------------
+|
+| Main CSS entry point for the public website.
+| Uses Bootstrap 5 RTL for layout and Vazirmatn for Persian typography.
+|
+*/
+
+/* 1. Vazirmatn Font (self-host via @fontsource) */
+@import '@fontsource/vazirmatn/400.css';
+@import '@fontsource/vazirmatn/500.css';
+@import '@fontsource/vazirmatn/700.css';
+
+/* 2. Bootstrap 5 RTL */
+@import 'bootstrap/dist/css/bootstrap.rtl.min.css';
+
+/* 3. Custom Website Styles */
+body {
+    font-family: 'Vazirmatn', sans-serif;
+}
