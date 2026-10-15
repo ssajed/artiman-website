@@ -5,11 +5,11 @@
 @section('meta')
     <meta name="description" content="محصولات آرتیمان صنعت">
     @php
-        $canonicalRoute = app()->getLocale() === 'fa'
-            ? 'website.products.index'
+        $canonicalRoute = app()->getLocale() === 'fa' 
+            ? 'website.products.index' 
             : 'localized.website.products.index';
-        $canonicalParams = app()->getLocale() === 'fa'
-            ? []
+        $canonicalParams = app()->getLocale() === 'fa' 
+            ? [] 
             : ['locale' => app()->getLocale()];
     @endphp
     <link rel="canonical" href="{{ route($canonicalRoute, $canonicalParams) }}">
@@ -61,14 +61,14 @@
                                     {{-- Product Title --}}
                                     <h5 class="card-title fw-bold mb-2">
                                         @php
-                                            $routeName = app()->getLocale() === 'fa'
-                                                ? 'website.products.show'
+                                            $routeName = app()->getLocale() === 'fa' 
+                                                ? 'website.products.show' 
                                                 : 'localized.website.products.show';
                                             $routeParams = app()->getLocale() === 'fa'
                                                 ? ['slug' => $product['slug']]
                                                 : ['locale' => app()->getLocale(), 'slug' => $product['slug']];
                                         @endphp
-                                        <a href="{{ route($routeName, $routeParams) }}"
+                                        <a href="{{ route($routeName, $routeParams) }}" 
                                            class="text-decoration-none text-dark stretched-link">
                                             {{ $product['title'] }}
                                         </a>
@@ -81,7 +81,7 @@
 
                                     {{-- View Details Button --}}
                                     <div class="mt-auto">
-                                        <a href="{{ route($routeName, $routeParams) }}"
+                                        <a href="{{ route($routeName, $routeParams) }}" 
                                            class="btn btn-success">
                                             مشاهده جزئیات
                                         </a>
