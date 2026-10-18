@@ -8,19 +8,22 @@ use Illuminate\Support\ServiceProvider;
 
 class ProductsServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
     public function register(): void
     {
-        $this->app->bind(ProductCatalogInterface::class, ProductCatalogService::class);
+        $this->app->bind(
+            ProductCatalogInterface::class,
+            ProductCatalogService::class
+        );
     }
 
-    /**
-     * Bootstrap any application services.
-     */
     public function boot(): void
     {
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+
+        $routesFile = __DIR__ . '/../routes/admin.php';
+
+        if (file_exists($routesFile)) {
+            $this->loadRoutesFrom($routesFile);
+        }
     }
 }

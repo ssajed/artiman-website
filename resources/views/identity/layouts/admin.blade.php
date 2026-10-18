@@ -12,11 +12,14 @@
             <a href="{{ route('admin.dashboard') }}" class="font-bold text-green-700">
                 آرتیمان صنعت
             </a>
+
             <div class="flex items-center gap-4">
                 <span class="text-sm">{{ auth()->user()->name }}</span>
+
                 <form method="POST" action="{{ route('admin.logout') }}">
                     @csrf
-                    <button type="submit" class="rounded-lg border border-gray-300 px-3 py-2 text-sm hover:bg-gray-50">
+                    <button type="submit"
+                        class="rounded-lg border border-gray-300 px-3 py-2 text-sm hover:bg-gray-50">
                         خروج
                     </button>
                 </form>
@@ -27,9 +30,18 @@
     <div class="mx-auto grid max-w-7xl gap-6 px-4 py-6 md:grid-cols-[220px_1fr]">
         <aside class="rounded-xl border border-gray-200 bg-white p-4">
             <p class="mb-3 text-xs font-semibold text-gray-500">مدیریت</p>
-            <a href="{{ route('admin.dashboard') }}" class="block rounded-lg bg-green-50 px-3 py-2 font-medium text-green-800">
-                داشبورد
-            </a>
+
+            <nav class="space-y-2">
+                <a href="{{ route('admin.dashboard') }}"
+                    class="block rounded-lg bg-green-50 px-3 py-2 font-medium text-green-800">
+                    داشبورد
+                </a>
+
+                <a href="{{ route('admin.products.index') }}"
+                    class="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50">
+                    محصولات
+                </a>
+            </nav>
         </aside>
 
         <main class="min-w-0">
