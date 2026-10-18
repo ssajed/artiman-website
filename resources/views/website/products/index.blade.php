@@ -50,6 +50,30 @@
                     @foreach($products as $product)
                         <div class="col-md-6 col-lg-4">
                             <div class="card h-100 border-0 shadow-sm">
+
+                            @php
+                                $productImages = $product['images'] ?? [];
+                                $firstImage = is_array($productImages) ? ($productImages[0] ?? null) : null;
+                                $imageUrl = null;
+                                if (is_string($firstImage) && trim($firstImage) !== '') {
+                                    if (preg_match('~^https?://~i', $firstImage)) {
+                                        $imageUrl = $firstImage;
+                                    } elseif (str_starts_with($firstImage, '/')) {
+                                        $imageUrl = asset(ltrim($firstImage, '/'));
+                                    } else {
+                                        $imageUrl = asset('storage/' . ltrim($firstImage, '/'));
+                                    }
+                                }
+                            @endphp
+
+                            @if($imageUrl)
+                                <img src="{{ $imageUrl }}" alt="{{ $product['title'] }}" class="card-img-top" loading="lazy" style="height: 230px; object-fit: contain; padding: 12px; background: #fff;">
+                            @else
+                                <div class="d-flex align-items-center justify-content-center bg-light text-muted" style="height: 230px;">
+                                    تصویر محصول ثبت نشده است
+                                </div>
+                            @endif
+
                                 <div class="card-body d-flex flex-column">
                                     {{-- Category Badge --}}
                                     @if(isset($categoriesMap[$product['category_id']]))
