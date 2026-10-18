@@ -113,6 +113,28 @@ class CategoryController extends Controller
             ->with('success', 'نسخه جدید ساخته شد؛ می‌توانی اطلاعات آن را ویرایش کنی.');
     }
 
+
+
+public function destroy(Category $category): RedirectResponse
+{
+    if ($category->products()->exists()) {
+        return redirect()->route('admin.categories.index')
+            ->with('error', 'این دسته‌بندی دارای محصول است و امکان حذف آن وجود ندارد.');
+    }
+
+    if ($category->children()->exists()) {
+        return redirect()->route('admin.categories.index')
+            ->with('error', 'این دسته‌بندی دارای زیرمجموعه است؛ ابتدا زیرمجموعه‌ها را تعیین تکلیف کن.');
+    }
+
+    $category->delete();
+
+    return redirect()->route('admin.categories.index')
+        ->with('success', 'دسته‌بندی با موفقیت حذف شد.');
+}
+
+
+
     private function makeSlug(string $value): string
     {
         $slug = Str::slug($value);

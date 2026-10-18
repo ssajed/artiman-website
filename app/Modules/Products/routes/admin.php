@@ -25,4 +25,5 @@ Route::middleware(['web', 'auth', 'admin'])
         Route::get('/{category}/edit', [CategoryController::class, 'edit'])->name('edit');
         Route::put('/{category}', [CategoryController::class, 'update'])->name('update');
         Route::post('/{category}/duplicate', [CategoryController::class, 'duplicate'])->name('duplicate');
+        Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('destroy');
     });
