@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 use App\Modules\Products\Http\Controllers\Admin\CategoryController;
 use App\Modules\Products\Http\Controllers\Admin\ProductController;
@@ -22,4 +22,7 @@ Route::middleware(['web', 'auth', 'admin'])
         Route::get('/', [CategoryController::class, 'index'])->name('index');
         Route::get('/create', [CategoryController::class, 'create'])->name('create');
         Route::post('/', [CategoryController::class, 'store'])->name('store');
+        Route::get('/{category}/edit', [CategoryController::class, 'edit'])->name('edit');
+        Route::put('/{category}', [CategoryController::class, 'update'])->name('update');
+        Route::post('/{category}/duplicate', [CategoryController::class, 'duplicate'])->name('duplicate');
     });

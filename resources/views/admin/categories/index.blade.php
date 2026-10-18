@@ -5,16 +5,16 @@
 <div class="container-fluid py-4" dir="rtl">
     <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
         <div>
-            <h1 class="h4 fw-bold mb-1">مدیریت دسته‌بندی‌ها</h1>
+            <h1 class="h4 fw-bold mb-1">ظ…ط¯غŒط±غŒطھ ط¯ط³طھظ‡â€Œط¨ظ†ط¯غŒâ€Œظ‡ط§</h1>
             <p class="text-muted mb-0">
-                مدیریت گروه‌بندی محصولات آرتیمان صنعت
+                ظ…ط¯غŒط±غŒطھ ع¯ط±ظˆظ‡â€Œط¨ظ†ط¯غŒ ظ…ط­طµظˆظ„ط§طھ ط¢ط±طھغŒظ…ط§ظ† طµظ†ط¹طھ
             </p>
         </div>
 
         <a href="{{ route('admin.categories.create') }}"
            class="btn btn-success">
             <span class="me-1">+</span>
-            ثبت دسته‌بندی جدید
+            ط«ط¨طھ ط¯ط³طھظ‡â€Œط¨ظ†ط¯غŒ ط¬ط¯غŒط¯
         </a>
     </div>
 
@@ -24,7 +24,7 @@
             <button type="button"
                     class="btn-close"
                     data-bs-dismiss="alert"
-                    aria-label="بستن"></button>
+                    aria-label="ط¨ط³طھظ†"></button>
         </div>
     @endif
 
@@ -42,12 +42,12 @@
                 <table class="table table-hover align-middle mb-0">
                     <thead class="table-light">
                         <tr>
-                            <th class="px-3" style="width: 80px;">ردیف</th>
-                            <th>نام دسته‌بندی</th>
-                            <th>شناسه انگلیسی</th>
-                            <th>دسته‌بندی والد</th>
-                            <th class="text-center">تعداد محصولات</th>
-                            <th class="text-center">ترتیب نمایش</th>
+                            <th class="px-3" style="width: 80px;">ط±ط¯غŒظپ</th>
+                            <th>ظ†ط§ظ… ط¯ط³طھظ‡â€Œط¨ظ†ط¯غŒ</th>
+                            <th>ط´ظ†ط§ط³ظ‡ ط§ظ†ع¯ظ„غŒط³غŒ</th>
+                            <th>ط¯ط³طھظ‡â€Œط¨ظ†ط¯غŒ ظˆط§ظ„ط¯</th>
+                            <th class="text-center">طھط¹ط¯ط§ط¯ ظ…ط­طµظˆظ„ط§طھ</th>
+                            <th class="text-center">طھط±طھغŒط¨ ظ†ظ…ط§غŒط´</th>
                         </tr>
                     </thead>
 
@@ -67,7 +67,7 @@
                                 </td>
 
                                 <td>
-                                    {{ $category->parent?->name ?? '—' }}
+                                    {{ $category->parent?->name ?? 'â€”' }}
                                 </td>
 
                                 <td class="text-center">
@@ -82,14 +82,14 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6" class="text-center py-5">
+                                <td colspan="7" class="text-center py-5">
                                     <div class="text-muted mb-3">
-                                        هنوز دسته‌بندی‌ای ثبت نشده است.
+                                        ظ‡ظ†ظˆط² ط¯ط³طھظ‡â€Œط¨ظ†ط¯غŒâ€Œط§غŒ ط«ط¨طھ ظ†ط´ط¯ظ‡ ط§ط³طھ.
                                     </div>
 
                                     <a href="{{ route('admin.categories.create') }}"
                                        class="btn btn-outline-success">
-                                        ثبت اولین دسته‌بندی
+                                        ط«ط¨طھ ط§ظˆظ„غŒظ† ط¯ط³طھظ‡â€Œط¨ظ†ط¯غŒ
                                     </a>
                                 </td>
                             </tr>
