@@ -5,6 +5,7 @@ namespace Tests\Feature\Modules\ProjectProgress;
 use App\Modules\Identity\Models\User;
 use App\Modules\ProjectProgress\Models\ProjectActivity;
 use App\Modules\ProjectProgress\Models\ProjectPhase;
+use App\Modules\ProjectProgress\Support\ProjectCalendar;
 use Carbon\CarbonImmutable;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Spatie\Permission\Models\Role;
@@ -49,6 +50,14 @@ class ProjectProgressTest extends TestCase
             ->assertForbidden();
 
         $this->actingAs($user)
+            ->get(route('admin.project-progress.phases.create'))
+            ->assertForbidden();
+
+        $this->actingAs($user)
+            ->get(route('admin.project-progress.phases.edit', $phase))
+            ->assertForbidden();
+
+        $this->actingAs($user)
             ->post(route('admin.project-progress.activities.store'), [
                 'phase_id' => $phase->id,
                 'title' => 'فعالیت غیرمجاز',
@@ -56,6 +65,13 @@ class ProjectProgressTest extends TestCase
                 'end_date' => '۱۴۰۵/۰۸/۰۲',
                 'status' => ProjectActivity::STATUS_NOT_STARTED,
                 'priority' => ProjectActivity::PRIORITY_MEDIUM,
+            ])
+            ->assertForbidden();
+
+        $this->actingAs($user)
+            ->post(route('admin.project-progress.phases.store'), [
+                'name' => 'مرحله غیرمجاز',
+                'sort_order' => 5,
             ])
             ->assertForbidden();
 
@@ -70,8 +86,35 @@ class ProjectProgressTest extends TestCase
             ])
             ->assertForbidden();
 
+        $this->actingAs($user)
+            ->put(route('admin.project-progress.phases.update', $phase), [
+                'name' => 'ویرایش غیرمجاز',
+                'sort_order' => 1,
+            ])
+            ->assertForbidden();
+
         $this->assertDatabaseMissing('project_progress_activities', ['title' => 'فعالیت غیرمجاز']);
         $this->assertDatabaseHas('project_progress_activities', ['id' => $activity->id, 'title' => 'فعالیت محافظت‌شده']);
+        $this->assertDatabaseHas('project_progress_phases', ['id' => $phase->id, 'name' => 'مرحله آزمایشی']);
+    }
+
+    public function test_baseline_activities_are_scheduled_on_working_day_boundaries(): void
+    {
+        $activities = ProjectActivity::query()->get();
+
+        $this->assertCount(8, $activities);
+
+        foreach ($activities as $activity) {
+            $this->assertTrue(ProjectCalendar::isWorkingDay($activity->start_date), $activity->title);
+            $this->assertTrue(ProjectCalendar::isWorkingDay($activity->end_date), $activity->title);
+        }
+
+        $this->actingAs($this->createAdmin())
+            ->get(route('admin.project-progress.index'))
+            ->assertOk()
+            ->assertSee('1405/08/06')
+            ->assertSee('1405/08/07')
+            ->assertSee('تعطیل تقویمی — موعد هدف تحویل پروژه، بدون فعالیت کاری.');
     }
 
     public function test_admin_can_create_update_and_retrieve_activity_after_reauthentication(): void
@@ -120,6 +163,44 @@ class ProjectProgressTest extends TestCase
         ]);
     }
 
+    public function test_admin_can_create_and_update_a_phase_persistently(): void
+    {
+        $admin = $this->createAdmin();
+
+        $this->actingAs($admin)
+            ->post(route('admin.project-progress.phases.store'), [
+                'name' => 'مرحله ثبت‌شده',
+                'sort_order' => 9,
+            ])
+            ->assertRedirect(route('admin.project-progress.index'));
+
+        $phase = ProjectPhase::where('name', 'مرحله ثبت‌شده')->firstOrFail();
+
+        $this->get(route('admin.project-progress.phases.edit', $phase))
+            ->assertOk()
+            ->assertSee('مرحله ثبت‌شده');
+
+        $this->put(route('admin.project-progress.phases.update', $phase), [
+            'name' => 'مرحله به‌روزشده',
+            'sort_order' => 10,
+        ])->assertRedirect(route('admin.project-progress.index'));
+
+        auth()->logout();
+
+        $this->actingAs(User::findOrFail($admin->id));
+        $this->get(route('admin.project-progress.index'))
+            ->assertOk()
+            ->assertSee('مرحله به‌روزشده')
+            ->assertSee('href="'.route('admin.project-progress.index').'"', false)
+            ->assertSeeText('پیشرفت پروژه');
+
+        $this->assertDatabaseHas('project_progress_phases', [
+            'id' => $phase->id,
+            'name' => 'مرحله به‌روزشده',
+            'sort_order' => 10,
+        ]);
+    }
+
     public function test_progress_percentages_follow_activity_statuses(): void
     {
         $this->actingAs($this->createAdmin());
@@ -131,7 +212,7 @@ class ProjectProgressTest extends TestCase
             ProjectActivity::STATUS_NOT_STARTED,
         ] as $index => $status) {
             $phase->activities()->create([
-                'title' => 'فعالیت ' . $index,
+                'title' => 'فعالیت '.$index,
                 'start_date' => '2026-10-19',
                 'end_date' => '2026-10-20',
                 'status' => $status,

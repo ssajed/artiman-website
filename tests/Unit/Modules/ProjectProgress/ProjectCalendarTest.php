@@ -23,6 +23,17 @@ class ProjectCalendarTest extends TestCase
         $this->assertTrue(ProjectCalendar::isWorkingDay(CarbonImmutable::parse('2026-10-24')));
     }
 
+    public function test_delivery_date_is_formal_target_and_previous_day_is_last_workday(): void
+    {
+        $deliveryDate = CarbonImmutable::parse(ProjectCalendar::DELIVERY_DATE);
+        $lastWorkday = $deliveryDate->subDay();
+
+        $this->assertSame('1405/08/07', ProjectCalendar::toJalali($deliveryDate));
+        $this->assertSame('1405/08/06', ProjectCalendar::toJalali($lastWorkday));
+        $this->assertFalse(ProjectCalendar::isWorkingDay($deliveryDate));
+        $this->assertTrue(ProjectCalendar::isWorkingDay($lastWorkday));
+    }
+
     public function test_overdue_status_waits_until_a_working_day_after_the_due_date(): void
     {
         $dueDate = CarbonImmutable::parse('2026-10-21');

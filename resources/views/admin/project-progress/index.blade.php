@@ -499,7 +499,12 @@
     </section>
 
     <section class="project-progress-card">
-        <h2 class="section-heading">پیشرفت مرحله‌ها</h2>
+        <div class="progress-panel-heading">
+            <h2 class="section-heading">پیشرفت مرحله‌ها</h2>
+            <a href="{{ route('admin.project-progress.phases.create') }}" class="btn btn-sm btn-outline-success">
+                افزودن مرحله
+            </a>
+        </div>
         @if ($phases->isEmpty())
             <p class="empty-state">مرحله‌ای برای پروژه ثبت نشده است.</p>
         @else
@@ -507,7 +512,11 @@
                 @foreach ($phases as $phase)
                     <div class="phase-item">
                         <div class="progress-panel-heading">
-                            <strong>{{ $phase->name }}</strong>
+                            <strong>
+                                <a href="{{ route('admin.project-progress.phases.edit', $phase) }}" class="text-decoration-none text-reset">
+                                    {{ $phase->name }}
+                                </a>
+                            </strong>
                             <span class="phase-progress-value">{{ $phase->progress_percent }}٪</span>
                         </div>
                         <div class="progress-track" role="progressbar" aria-valuenow="{{ $phase->progress_percent }}" aria-valuemin="0" aria-valuemax="100">

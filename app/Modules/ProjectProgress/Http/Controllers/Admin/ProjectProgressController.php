@@ -10,6 +10,7 @@ use Carbon\CarbonImmutable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
@@ -28,8 +29,7 @@ class ProjectProgressController extends Controller
             ->get();
         $activities = $phases->flatMap->activities;
         $today = ProjectCalendar::today();
-        $todayActivities = $activities->filter(fn (ProjectActivity $activity) =>
-            $activity->start_date->toDateString() <= $today->toDateString()
+        $todayActivities = $activities->filter(fn (ProjectActivity $activity) => $activity->start_date->toDateString() <= $today->toDateString()
             && $activity->end_date->toDateString() >= $today->toDateString()
             && $activity->status !== ProjectActivity::STATUS_COMPLETED
         );
@@ -50,6 +50,40 @@ class ProjectProgressController extends Controller
             'deliveryDateJalali' => ProjectCalendar::toJalali(ProjectCalendar::DELIVERY_DATE),
             'overallProgress' => $this->calculateProgress($activities),
         ]);
+    }
+
+    public function createPhase(): View
+    {
+        return view('admin.project-progress.phases.form', [
+            'phase' => new ProjectPhase,
+            'isEditing' => false,
+        ]);
+    }
+
+    public function storePhase(Request $request): RedirectResponse
+    {
+        $validated = $this->validatedPhaseData($request);
+        $validated['key'] = 'phase-'.Str::uuid();
+        ProjectPhase::create($validated);
+
+        return redirect()->route('admin.project-progress.index')
+            ->with('success', 'مرحله پروژه ثبت شد.');
+    }
+
+    public function editPhase(ProjectPhase $phase): View
+    {
+        return view('admin.project-progress.phases.form', [
+            'phase' => $phase,
+            'isEditing' => true,
+        ]);
+    }
+
+    public function updatePhase(Request $request, ProjectPhase $phase): RedirectResponse
+    {
+        $phase->update($this->validatedPhaseData($request));
+
+        return redirect()->route('admin.project-progress.index')
+            ->with('success', 'تغییرات مرحله ذخیره شد.');
     }
 
     public function create(): View
@@ -126,6 +160,21 @@ class ProjectProgressController extends Controller
         return $validated;
     }
 
+    /**
+     * @return array{name: string, sort_order: int}
+     */
+    private function validatedPhaseData(Request $request): array
+    {
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'sort_order' => ['required', 'integer', 'between:0,65535'],
+        ]);
+
+        $validated['sort_order'] = (int) $validated['sort_order'];
+
+        return $validated;
+    }
+
     private function parseJalaliDate(string $date, string $field): string
     {
         try {
@@ -146,7 +195,7 @@ class ProjectProgressController extends Controller
     }
 
     /**
-     * @param Collection<int, ProjectActivity> $activities
+     * @param  Collection<int, ProjectActivity>  $activities
      * @return array<int, array{date: CarbonImmutable, working: bool, activities: Collection<int, ProjectActivity>}>
      */
     private function buildCalendar(Collection $activities, CarbonImmutable $today): array
@@ -162,8 +211,7 @@ class ProjectProgressController extends Controller
         for ($date = $today; $date->lessThanOrEqualTo($deliveryDate); $date = $date->addDay()) {
             $working = ProjectCalendar::isWorkingDay($date);
             $dayActivities = $working
-                ? $activities->filter(fn (ProjectActivity $activity) =>
-                    $activity->start_date->toDateString() <= $date->toDateString()
+                ? $activities->filter(fn (ProjectActivity $activity) => $activity->start_date->toDateString() <= $date->toDateString()
                     && $activity->end_date->toDateString() >= $date->toDateString()
                 )->values()
                 : collect();
@@ -179,7 +227,7 @@ class ProjectProgressController extends Controller
     }
 
     /**
-     * @param Collection<int, ProjectActivity> $activities
+     * @param  Collection<int, ProjectActivity>  $activities
      */
     private function calculateProgress(Collection $activities): int
     {
