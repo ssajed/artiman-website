@@ -353,21 +353,38 @@
 
                     <a href="{{ route('admin.dashboard') }}"
                        class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
-                        <span>داشبورد</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="7" rx="1" />
+                            <rect x="14" y="3" width="7" height="7" rx="1" />
+                            <rect x="3" y="14" width="7" height="7" rx="1" />
+                            <rect x="14" y="14" width="7" height="7" rx="1" />
+                        </svg>
+                        <span class="menu-label">داشبورد</span>
                     </a>
 
                     <div class="nav-disabled">
-                        <span>کاربران و سطح دسترسی</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="8" r="3" />
+                            <path d="M3 20v-1a6 6 0 0 1 12 0v1M16 5.5a3 3 0 0 1 0 5.8M18 14a5 5 0 0 1 3 5v1" />
+                        </svg>
+                        <span class="menu-label">کاربران و سطح دسترسی</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>اطلاعات و تنظیمات شرکت</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 21V5l8-3 8 3v16M2 21h20M8 9h1m6 0h1M8 13h1m6 0h1M10 21v-4h4v4" />
+                        </svg>
+                        <span class="menu-label">اطلاعات و تنظیمات شرکت</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>گزارش‌های مدیریتی</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19V5m0 14h17" />
+                            <path d="m7 15 4-4 3 2 6-7" />
+                        </svg>
+                        <span class="menu-label">گزارش‌های مدیریتی</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
                 </div>
@@ -378,32 +395,54 @@
                     <div class="admin-nav-title">فروش و مشتریان</div>
 
                     <div class="nav-disabled">
-                        <span>سرنخ‌های فروش</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 18 18 4m0 0h-7m7 0v7M5 6v13h13" />
+                        </svg>
+                        <span class="menu-label">سرنخ‌های فروش</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>مشتریان و شرکت‌ها</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="8" r="3" />
+                            <circle cx="18" cy="9" r="2" />
+                            <path d="M3 20v-1a6 6 0 0 1 12 0v1m1-5a4 4 0 0 1 5 4v1" />
+                        </svg>
+                        <span class="menu-label">مشتریان و شرکت‌ها</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>فرصت‌های فروش</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 18 18 4m0 0h-7m7 0v7M5 6v13h13" />
+                        </svg>
+                        <span class="menu-label">فرصت‌های فروش</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>استعلام‌های مشتریان</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="5" width="18" height="14" rx="2" />
+                            <path d="m4 7 8 6 8-6" />
+                        </svg>
+                        <span class="menu-label">استعلام‌های مشتریان</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>پیش‌فاکتورها</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 3h9l4 4v14H6zM15 3v5h5M9 12h7m-7 4h7" />
+                        </svg>
+                        <span class="menu-label">پیش‌فاکتورها</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>سفارش‌های فروش</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 3h9l4 4v14H6zM15 3v5h5M9 12h7m-7 4h7" />
+                            <path d="m9 8 2 2 4-4" />
+                        </svg>
+                        <span class="menu-label">سفارش‌های فروش</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
                 </div>
@@ -415,26 +454,48 @@
 
                     <a href="{{ route('admin.products.index') }}"
                        class="{{ request()->routeIs('admin.products.*') ? 'active' : '' }}">
-                        <span>مدیریت محصولات</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m12 3 9 5-9 5-9-5 9-5Z" />
+                            <path d="m3 12 9 5 9-5M3 16l9 5 9-5" />
+                        </svg>
+                        <span class="menu-label">مدیریت محصولات</span>
                     </a>
 
                     <a href="{{ route('admin.categories.index') }}"
                        class="{{ request()->routeIs('admin.categories.*') ? 'active' : '' }}">
-                        <span>دسته‌بندی محصولات</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 6h16M4 12h16M4 18h16" />
+                            <circle cx="8" cy="6" r="1" />
+                            <circle cx="8" cy="12" r="1" />
+                            <circle cx="8" cy="18" r="1" />
+                        </svg>
+                        <span class="menu-label">دسته‌بندی محصولات</span>
                     </a>
 
                     <div class="nav-disabled">
-                        <span>ساختار مواد و BOM</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="5" r="2" />
+                            <circle cx="5" cy="19" r="2" />
+                            <circle cx="19" cy="19" r="2" />
+                            <path d="M12 7v5m0 0-7 5m7-5 7 5" />
+                        </svg>
+                        <span class="menu-label">ساختار مواد و BOM</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>طراحی برج خنک‌کننده</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 21V4h12v17M4 21h16M9 8h6m-6 4h6m-6 4h6" />
+                        </svg>
+                        <span class="menu-label">طراحی برج خنک‌کننده</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>نقشه‌ها و مدارک فنی</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 3h9l4 4v14H6zM15 3v5h5M9 12h7m-7 4h7" />
+                        </svg>
+                        <span class="menu-label">نقشه‌ها و مدارک فنی</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
                 </div>
@@ -445,27 +506,49 @@
                     <div class="admin-nav-title">برنامه‌ریزی و تولید</div>
 
                     <div class="nav-disabled">
-                        <span>برنامه‌ریزی تولید</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="5" width="16" height="16" rx="2" />
+                            <path d="M8 3v4m8-4v4M4 10h16m-12 4 2 2 4-4" />
+                        </svg>
+                        <span class="menu-label">برنامه‌ریزی تولید</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>دستورکارهای تولید</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="4" width="14" height="17" rx="2" />
+                            <path d="M9 4V2h6v2m-5 6h4m-4 4h6m-6 4h6" />
+                        </svg>
+                        <span class="menu-label">دستورکارهای تولید</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>ایستگاه‌ها و مراحل تولید</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="5" cy="12" r="2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <circle cx="19" cy="12" r="2" />
+                            <path d="M7 12h3m4 0h3" />
+                        </svg>
+                        <span class="menu-label">ایستگاه‌ها و مراحل تولید</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>قطعات فایبرگلاس و سریال</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 7 12 3l8 4v10l-8 4-8-4V7Z" />
+                            <path d="m4 7 8 4 8-4m-8 4v10" />
+                        </svg>
+                        <span class="menu-label">قطعات فایبرگلاس و سریال</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>وزن قبل و بعد از تریم</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3v3m0-3 2 2m-2-2-2 2M5 21h14l-2-12H7L5 21Z" />
+                            <path d="M12 12l3-2" />
+                        </svg>
+                        <span class="menu-label">وزن قبل و بعد از تریم</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
                 </div>
@@ -476,22 +559,38 @@
                     <div class="admin-nav-title">خرید و تأمین‌کنندگان</div>
 
                     <div class="nav-disabled">
-                        <span>درخواست‌های خرید</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="20" r="1" />
+                            <circle cx="18" cy="20" r="1" />
+                            <path d="M3 4h2l2.5 11h11l2-8H6" />
+                        </svg>
+                        <span class="menu-label">درخواست‌های خرید</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>سفارش‌های خرید</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 3h9l4 4v14H6zM15 3v5h5M9 12h7m-7 4h7" />
+                            <path d="m9 8 2 2 4-4" />
+                        </svg>
+                        <span class="menu-label">سفارش‌های خرید</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>تأمین‌کنندگان</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 21V8l9-5 9 5v13M2 21h20M7 12h2m6 0h2m-10 4h2m6 0h2m-7 5v-4h4v4" />
+                        </svg>
+                        <span class="menu-label">تأمین‌کنندگان</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>رسید مواد خریداری‌شده</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16v16H4zM4 13h4l2 3h4l2-3h4" />
+                            <path d="M12 4v7m-3-3 3 3 3-3" />
+                        </svg>
+                        <span class="menu-label">رسید مواد خریداری‌شده</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
                 </div>
@@ -502,27 +601,45 @@
                     <div class="admin-nav-title">انبار و موجودی</div>
 
                     <div class="nav-disabled">
-                        <span>موجودی انبارها</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 7 12 3l9 4-9 4-9-4Z" />
+                            <path d="M3 12l9 4 9-4m-18 5 9 4 9-4M12 11v5" />
+                        </svg>
+                        <span class="menu-label">موجودی انبارها</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>رسید انبار</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16v16H4zM4 13h4l2 3h4l2-3h4" />
+                            <path d="M12 11V5m-3 3 3-3 3 3" />
+                        </svg>
+                        <span class="menu-label">رسید انبار</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>حواله و مصرف مواد</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 12h15m-6-6 6 6-6 6" />
+                            <path d="M5 5v14" />
+                        </svg>
+                        <span class="menu-label">حواله و مصرف مواد</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>انتقال بین انبارها</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 8h15m-5-5 5 5-5 5M20 16H5m5-5-5 5 5 5" />
+                        </svg>
+                        <span class="menu-label">انتقال بین انبارها</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>گردش کالا و سریال‌ها</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 12a9 9 0 0 1 15-6l2 2M20 4v4h-4M21 12a9 9 0 0 1-15 6l-2-2m0 4v-4h4" />
+                        </svg>
+                        <span class="menu-label">گردش کالا و سریال‌ها</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
                 </div>
@@ -533,22 +650,38 @@
                     <div class="admin-nav-title">کنترل کیفیت</div>
 
                     <div class="nav-disabled">
-                        <span>کنترل کیفیت ورودی</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3 20 6v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-3Z" />
+                            <path d="m8 12 3 3 5-6" />
+                        </svg>
+                        <span class="menu-label">کنترل کیفیت ورودی</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>کنترل حین تولید</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="m8 12 3 3 5-6M12 3v2" />
+                        </svg>
+                        <span class="menu-label">کنترل حین تولید</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>کنترل محصول نهایی</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m12 3 9 5-9 5-9-5 9-5Z" />
+                            <path d="m3 12 9 5 9-5m-18 5 9 4 9-4m-6-8 2 2 4-4" />
+                        </svg>
+                        <span class="menu-label">کنترل محصول نهایی</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>عدم انطباق و اقدامات اصلاحی</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 21V4m0 0h13l-3 4 3 4H5" />
+                            <path d="M12 14v3m0 2h.01" />
+                        </svg>
+                        <span class="menu-label">عدم انطباق و اقدامات اصلاحی</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
                 </div>
@@ -559,22 +692,40 @@
                     <div class="admin-nav-title">خدمات و گزارش‌ها</div>
 
                     <div class="nav-disabled">
-                        <span>نصب و خدمات پس از فروش</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 7 7 14m5-9 2-2a5 5 0 0 1 7 7l-2 2M9 15l-2 2a5 5 0 0 1-7-7l2-2" transform="translate(1 1)" />
+                            <path d="m5 19 4-4" />
+                        </svg>
+                        <span class="menu-label">نصب و خدمات پس از فروش</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>گزارش فروش و مشتریان</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19V5m0 14h17" />
+                            <path d="m7 15 4-4 3 2 6-7" />
+                        </svg>
+                        <span class="menu-label">گزارش فروش و مشتریان</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>گزارش تولید و کیفیت</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19V5m0 14h17" />
+                            <path d="m7 15 4-4 3 2 6-7" />
+                            <circle cx="18" cy="6" r="2" />
+                        </svg>
+                        <span class="menu-label">گزارش تولید و کیفیت</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
 
                     <div class="nav-disabled">
-                        <span>گزارش خرید و انبار</span>
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19V5m0 14h17" />
+                            <path d="m7 15 4-4 3 2 6-7" />
+                            <path d="M7 7h3" />
+                        </svg>
+                        <span class="menu-label">گزارش خرید و انبار</span>
                         <span class="nav-badge">به‌زودی</span>
                     </div>
                 </div>
@@ -599,65 +750,6 @@
     </footer>
 
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const icons = [
-                { words: ['داشبورد'], icon: '▦' },
-                { words: ['کاربران', 'دسترسی'], icon: '♙' },
-                { words: ['تنظیمات', 'اطلاعات شرکت'], icon: '⚙' },
-                { words: ['گزارش'], icon: '▤' },
-                { words: ['سرنخ', 'فرصت فروش', 'فروش'], icon: '↗' },
-                { words: ['مشتریان', 'شرکت‌ها'], icon: '♧' },
-                { words: ['استعلام'], icon: '✉' },
-                { words: ['پیش‌فاکتور'], icon: '▧' },
-                { words: ['سفارش'], icon: '▣' },
-                { words: ['محصولات'], icon: '◈' },
-                { words: ['دسته‌بندی'], icon: '▤' },
-                { words: ['BOM', 'مواد'], icon: '⌘' },
-                { words: ['طراحی برج'], icon: '⚙' },
-                { words: ['نقشه', 'مدارک فنی'], icon: '▧' },
-                { words: ['تولید'], icon: '⚒' },
-                { words: ['دستورکار'], icon: '☷' },
-                { words: ['ایستگاه', 'مراحل تولید'], icon: '⚙' },
-                { words: ['فایبرگلاس', 'سریال'], icon: '▦' },
-                { words: ['وزن', 'تریم'], icon: '⚖' },
-                { words: ['خرید'], icon: '🛒' },
-                { words: ['تأمین‌کنندگان'], icon: '♧' },
-                { words: ['رسید'], icon: '↓' },
-                { words: ['انبار', 'موجودی'], icon: '▣' },
-                { words: ['حواله', 'مصرف مواد'], icon: '↗' },
-                { words: ['انتقال'], icon: '⇄' },
-                { words: ['کیفیت'], icon: '✓' },
-                { words: ['عدم انطباق', 'اصلاحی'], icon: '⚑' },
-                { words: ['نصب', 'خدمات پس از فروش'], icon: '🔧' },
-                { words: ['وب‌سایت'], icon: '◎' }
-            ];
-
-            document.querySelectorAll(
-                '.admin-nav a, .admin-nav .nav-disabled'
-            ).forEach(function (item) {
-                if (item.querySelector('.menu-icon')) return;
-
-                const label = item.querySelector('span:not(.nav-badge)');
-                if (!label) return;
-
-                const text = label.textContent.trim();
-                const match = icons.find(function (entry) {
-                    return entry.words.some(function (word) {
-                        return text.includes(word);
-                    });
-                });
-
-                const icon = document.createElement('span');
-                icon.className = 'menu-icon';
-                icon.setAttribute('aria-hidden', 'true');
-                icon.textContent = match ? match.icon : '•';
-
-                item.insertBefore(icon, item.firstChild);
-                label.classList.add('menu-label');
-            });
-        });
-    </script>
 </body>
 
 </body>
