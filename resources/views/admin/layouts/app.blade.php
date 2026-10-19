@@ -362,6 +362,15 @@
                         <span class="menu-label">داشبورد</span>
                     </a>
 
+                    <a href="{{ route('admin.project-progress.index') }}"
+                       class="{{ request()->routeIs('admin.project-progress.*') ? 'active' : '' }}">
+                        <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="17" rx="2" />
+                            <path d="M8 2v4m8-4v4M3 9h18M7 14h3m4 0h3m-10 4h3" />
+                        </svg>
+                        <span class="menu-label">پیشرفت پروژه</span>
+                    </a>
+
                     <div class="nav-disabled">
                         <svg class="menu-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="9" cy="8" r="3" />
